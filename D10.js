@@ -549,7 +549,16 @@ addClass();
 
 */
 
-const halfTree = (num) => {};
+const halfTree = (num) => {
+  mainDiv = document.getElementById("first-tree");
+  let j = "*";
+  mainDiv.innerHTML = `<div class="alberello"><span class="asterisco" style="color: gold;"> ${j} </span></div>`;
+  for (let i = 1; i < num; i++) {
+    j += "*";
+    mainDiv.innerHTML += `<div class="alberello"><span class="asterisco" style="color: green;">${j}</span></div>`;
+  }
+};
+halfTree(5);
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -563,6 +572,37 @@ const halfTree = (num) => {};
 
 */
 
+const tree = (num) => {
+  mainDiv = document.getElementById("second-tree");
+  let j = "*";
+  mainDiv.innerHTML = `<div class="alberello"><span class="asterisco" style="color: gold;"> ${j} </span></div>`;
+  for (let i = 0; i < num; i++) {
+    j += "**";
+    mainDiv.innerHTML += `<div class="alberello"><span class="asterisco" style="color: green;"> ${j} </span></div>`;
+  }
+};
+tree(10);
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+function isItPrime(number) {
+  // Se il numero è minore o uguale a 1, non è primo
+  if (number <= 1) {
+    return false;
+  }
+
+  // Verifica se il numero è divisibile per qualche numero compreso tra 2 e il numero stesso
+  for (let i = 2; i < Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false; // Se il numero è divisibile per un altro numero, non è primo
+    }
+  }
+
+  return true; // Se il numero non è divisibile da nessun altro numero, è primo
+}
+
+// Esempio di utilizzo
+console.log("ES29 PRIMO: ", isItPrime(11)); // Output: true
+console.log("ES29 non PRIMO: ", isItPrime(16)); // Output: false
